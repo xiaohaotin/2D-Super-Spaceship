@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 7256904869793223915}
   - component: {fileID: 3804298762866579289}
   - component: {fileID: 5480508325745128432}
-  - component: {fileID: 6463424456761126339}
   - component: {fileID: 6294074197822746795}
   m_Layer: 8
   m_Name: Player
@@ -158,32 +157,6 @@ MonoBehaviour:
   canShot: 0
   explosion: {fileID: 3198395291949188266, guid: 2fcd385ee89f75447bd2d6b7048095c4,
     type: 3}
---- !u!61 &6463424456761126339
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6647914845999332714}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.92, y: 1.92}
-    newSize: {x: 0.96, y: 0.96}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!58 &6294074197822746795
 CircleCollider2D:
   m_ObjectHideFlags: 0

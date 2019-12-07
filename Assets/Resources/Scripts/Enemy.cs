@@ -35,9 +35,26 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnTriggerEnter2D(Collider2D collision) 
     {
-        
+        //layer名を取得
+        string layerName = LayerMask.LayerToName(collision.gameObject.layer);
+
+        //layer名がBullet(Player)以外の時は何も行わない
+        if (layerName != "Bullet(Player)") 
+        {
+            return;
+        } 
+        else 
+        {
+            //弾を削除する
+            Destroy(collision.gameObject);
+
+            //爆発する
+            spaceship.Explosion();
+
+            //Enemyを削除する
+            Destroy(gameObject);
+        }
     }
 }

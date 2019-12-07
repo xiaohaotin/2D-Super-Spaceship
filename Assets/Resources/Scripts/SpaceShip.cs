@@ -17,6 +17,15 @@ public class SpaceShip : MonoBehaviour
     //弾を撃つかどうか
     public bool canShot;
 
+    //爆発のprefab
+    public GameObject explosion;
+
+    //爆発の作成
+    public void Explosion() 
+    {
+        Instantiate(explosion, transform.position, transform.rotation);
+    }
+
     // Start is called before the first frame update
 
     //弾の作成

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3798390507690168733}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ShotPosition (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,8 @@ GameObject:
   - component: {fileID: 8333461545614315489}
   - component: {fileID: 3628234047150268665}
   - component: {fileID: 7812486003823699470}
-  m_Layer: 0
+  - component: {fileID: 529941031470650007}
+  m_Layer: 9
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +107,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300008, guid: bf3bdd2147b394bc2b771f2556f0b49d, type: 3}
-  m_Color: {r: 0, g: 1, b: 1, a: 0.99215686}
+  m_Color: {r: 1, g: 0.35686275, b: 0.8235294, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -148,9 +149,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
-  shotDelay: 0.3
-  bullet: {fileID: 6920458532028611217, guid: b664d13878c790b4eb4c2fc23267098c, type: 3}
+  shotDelay: 0.8
+  bullet: {fileID: 1647928687634280161, guid: 108b6dca7c74ca24bbb01fbf2bead42d, type: 3}
   canShot: 1
+  explosion: {fileID: 3198395291949188266, guid: 2fcd385ee89f75447bd2d6b7048095c4,
+    type: 3}
 --- !u!50 &3628234047150268665
 Rigidbody2D:
   serializedVersion: 4
@@ -184,6 +187,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2186238a085d24fb7f5c9b468eaa3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!58 &529941031470650007
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2719505132762182567}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.4
 --- !u!1 &6957639307019359585
 GameObject:
   m_ObjectHideFlags: 0
@@ -193,7 +212,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4089497696365750878}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ShotPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -223,7 +242,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6291326307210965071}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ShotPosition (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

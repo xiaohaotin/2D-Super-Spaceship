@@ -2,18 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
-{
+public class PlayerController : MonoBehaviour {
     //移動スピード
     public float speed = 5;
     //public GameObject bullet;
     // Start is called before the first frame update
 
     SpaceShip spaceship;
-    IEnumerator Start()
-    {
-        while (true)
-        {
+    IEnumerator Start() {
+        while (true) {
             // Spaceshipコンポーネントを取得
             spaceship = GetComponent<SpaceShip>();
 
@@ -27,8 +24,7 @@ public class PlayerController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
         //右、左
         float x = Input.GetAxisRaw("Horizontal");
 
@@ -44,4 +40,31 @@ public class PlayerController : MonoBehaviour
         //移動
         spaceship.Move(direction);
     }
+
+    //ぶつかった瞬間に呼び出される
+    void OnTriggerEnter2D(Collider2D collision) 
+    {
+        //layer名を取得します
+        string layerName = LayerMask.LayerToName(collision.gameObject.layer);
+
+        //layer名がBullet(Enemy)の時は弾を削除する
+        if (layerName == "Bullet(Enemy)") 
+        {
+            //弾を削除する
+            Destroy(collision.gameObject);
+        }
+
+        //layer名がBullet(Enemy)またはEnemyの場合は爆発する
+        if (layerName == "Bullet(Enemy)" || layerName == "Enemy") 
+        {
+            //爆発する
+            spaceship.Explosion();
+
+            //playerを削除する
+            Destroy(gameObject);
+        }
+        
+    }
+
+    
 }

@@ -10,12 +10,21 @@ public class Bullet : MonoBehaviour
     // Object生成から削除するまでの時間
     public float lifeTime = 5;
 
+    //弾は追跡かどうか
+    public bool cantrackplayer;
+
     // Start is called before the first frame update
     void Start()
     {
-        //ローカル座標のY軸方向に移動する
-        GetComponent<Rigidbody2D>().velocity = transform.up.normalized * speed;
+        if (cantrackplayer == false)
+        {
+            //ローカル座標のY軸方向に移動する
+            GetComponent<Rigidbody2D>().velocity = transform.up.normalized * speed;
+        }
+        else
+        {
 
+        }
         //lifeTime秒後に削除
         Destroy(gameObject, lifeTime);
     }

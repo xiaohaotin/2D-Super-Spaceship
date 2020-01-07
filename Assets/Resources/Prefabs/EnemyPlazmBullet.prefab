@@ -96,9 +96,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   lifeTime: 8
-  cantrackplayer: 1
-  player: {fileID: 6647914845999332711, guid: ae4306979f43c644a9289b32ced0615c, type: 3}
-  rb: {fileID: 0}
+  cantrackplayer: 0
 --- !u!50 &4679631772193282129
 Rigidbody2D:
   serializedVersion: 4

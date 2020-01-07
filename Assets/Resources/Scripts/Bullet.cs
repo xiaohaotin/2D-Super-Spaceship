@@ -13,6 +13,7 @@ public class Bullet : MonoBehaviour
     //弾は追跡かどうか
     public bool cantrackplayer;
 
+    private Vector2 moveDirection;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +28,11 @@ public class Bullet : MonoBehaviour
         }
         //lifeTime秒後に削除
         Destroy(gameObject, lifeTime);
+    }
+
+    public void SetMoveDirection(Vector2 dir) 
+    {
+        moveDirection = dir;
     }
 
     // Update is called once per frame

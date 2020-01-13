@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class DestroyArea : MonoBehaviour
 {
-    void OnTriggerExit2D(Collider2D collision) 
+    [SerializeField] GameManager gameManager;
+    void OnTriggerExit2D(Collider2D collision)
     {
-        Destroy(collision.gameObject);   
+        Destroy(collision.gameObject);
+        //if (Layer == "Player")
+        //{
+        //    gameManager.GameOver();
+        //}
+        
     }
 }

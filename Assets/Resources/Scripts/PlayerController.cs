@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
     //移動スピード
     public float speed = 5;
+
+    [SerializeField] GameManager gameManager;
     //public GameObject bullet;
     // Start is called before the first frame update
 
@@ -62,6 +64,7 @@ public class PlayerController : MonoBehaviour {
 
             //playerを削除する
             Destroy(gameObject);
+            gameManager.GameOver();
         }
         
     }

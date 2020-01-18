@@ -4,18 +4,35 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    
     //弾の移動スピード
     public float speed = 10;
 
     // Object生成から削除するまでの時間
     public float lifeTime = 5;
-
+    
     //弾は追跡かどうか
     public bool cantrackplayer;
 
     private Vector2 moveDirection;
     // Start is called before the first frame update
     void Start()
+    {
+       
+    }
+
+    public void SetMoveDirection(Vector2 dir) 
+    {
+        moveDirection = dir;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    public void release()
     {
         if (cantrackplayer == false)
         {
@@ -28,16 +45,5 @@ public class Bullet : MonoBehaviour
         }
         //lifeTime秒後に削除
         Destroy(gameObject, lifeTime);
-    }
-
-    public void SetMoveDirection(Vector2 dir) 
-    {
-        moveDirection = dir;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

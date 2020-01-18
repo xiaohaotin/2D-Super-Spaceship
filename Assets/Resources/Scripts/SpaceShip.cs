@@ -5,6 +5,9 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class SpaceShip : MonoBehaviour
 {
+
+    List<GameObject> bullets = new List<GameObject>();
+
     //移動スピード
     public float speed;
 
@@ -31,12 +34,26 @@ public class SpaceShip : MonoBehaviour
     //弾の作成
     public void Shot(Transform origin)
     {
-        Instantiate(bullet, origin.position, origin.rotation);
+        GameObject bulletInst = Instantiate(bullet, origin.position, origin.rotation);
+        bullets.Add(bulletInst);
+        //bulletInst.transform.SetParent(this.transform);
     }
 
     //機体の移動
     public void Move(Vector2 direction)
     {
         GetComponent<Rigidbody2D>().velocity = direction * speed;
+    }
+
+
+    public void ShotAll()
+    {
+        foreach (var b in bullets)
+        {
+            b.GetComponent<Bullet>().release();
+            b.transform.SetParent(null);
+        }
+
+        bullets.Clear();
     }
 }

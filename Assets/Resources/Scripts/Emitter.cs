@@ -6,12 +6,17 @@ public class Emitter : MonoBehaviour
 {
     //Waveプレハブを格納する
         public GameObject[] waves;
-    [SerializeField] GameManager gameManager;
+    [SerializeField] 
+    GameManager gameManager;
 
     //現在のWave
     private int currentWave;
-    // Start is called before the first frame update
-    IEnumerator Start()
+
+    private void Start()
+    {
+        StartCoroutine(emitWave());
+    }
+    IEnumerator emitWave()
     {
         //waveが存在しなければコルーチンを終了する
         if (waves.Length == 0)

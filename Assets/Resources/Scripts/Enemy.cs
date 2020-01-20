@@ -73,8 +73,8 @@ public class Enemy : MonoBehaviour
         //if (tick > waveDelay)
         //{
         //    tick = 0;
-        //    //StartCoroutine(startspawnbullet(count,true,spawnDelay,releaseDelay));
-        //    //waveDelay = count * spawnDelay + releaseDelay + 1f;
+        //    StartCoroutine(startspawnbullet(count,true,spawnDelay,releaseDelay));
+        //    waveDelay = count * spawnDelay + releaseDelay + 1f;
         //    Spawn();
         //}
 
@@ -97,12 +97,12 @@ public class Enemy : MonoBehaviour
         spaceship.Shot(shotposition.transform);
     }
 
-    public IEnumerator startspawnbullet(int count,bool clockwise,float shotDelay,float endDelay)
+    public IEnumerator startspawnbullet(int count, bool clockwise, float shotDelay, float endDelay)
     {
 
         for (int i = 0; i < count; i++)
         {
-            shotcenter.transform.Rotate(Vector3.forward, 360/count * (clockwise?1:-1));
+            shotcenter.transform.Rotate(Vector3.forward, 360 / count * (clockwise ? 1 : -1));
             Spawn();
             yield return new WaitForSeconds(shotDelay);
         }
@@ -111,17 +111,17 @@ public class Enemy : MonoBehaviour
         spaceship.ShotAll();
     }
 
-    void OnTriggerEnter2D(Collider2D collision) 
+    void OnTriggerEnter2D(Collider2D collision)
     {
         //layer名を取得
         string layerName = LayerMask.LayerToName(collision.gameObject.layer);
 
         //layer名がBullet(Player)以外の時は何も行わない
-        if (layerName != "Bullet(Player)") 
+        if (layerName != "Bullet(Player)")
         {
             return;
-        } 
-        else 
+        }
+        else
         {
             //弾を削除する
             Destroy(collision.gameObject);
@@ -133,4 +133,6 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+ 
 }

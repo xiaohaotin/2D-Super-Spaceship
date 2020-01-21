@@ -35,7 +35,7 @@ public class SpaceShip : MonoBehaviour
     public void Shot(Transform origin)
     {
         GameObject bulletInst = Instantiate(bullet, origin.position, origin.rotation);
-        bullets.Add(bulletInst);
+        //bullets.Add(bulletInst);
         //bulletInst.transform.SetParent(this.transform);
     }
 
@@ -46,14 +46,14 @@ public class SpaceShip : MonoBehaviour
     }
 
 
-    public void ShotAll()
-    {
-        foreach (var b in bullets)
-        {
-            b.GetComponent<Bullet>().release();
-            b.transform.SetParent(null);
-        }
+    //public void ShotAll()
+    //{
+    //    foreach (var b in bullets)
+    //    {
+    //        b.GetComponent<Bullet>().release();
+    //        b.transform.SetParent(null);
+    //    }
 
-        bullets.Clear();
-    }
+    //    bullets.Clear();
+    //}
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -32,6 +33,12 @@ public class GameMode : MonoBehaviour
             StopAllCoroutines();
             ClearBulletsList();
             StartCoroutine(FirRound(5, firPoint.transform.position));
+        }
+        if (GUI.Button(new Rect(20,240,200,100),"多重円形弾幕")) 
+        {
+            StopAllCoroutines();
+            ClearBulletsList();
+            StartCoroutine(FlowerFireBall());
         }
         if (GUI.Button(new Rect(20, 340, 200, 100), "嵐弾幕"))
         {
@@ -118,6 +125,28 @@ public class GameMode : MonoBehaviour
             yield return new WaitForSeconds(0.05f);      //延时较小的时间（为了表现效果），计算下一步
             bulletDir = rotateQuate * bulletDir;        //发射方向改变
             radius += distance;     //生成半径增加
+        }
+    }
+    /// <summary>
+    /// 多重円形弾幕
+    /// </summary>
+    /// <returns></returns>
+    IEnumerator FlowerFireBall() 
+    {
+        Vector3 bulletdir = this.transform.up;
+        Quaternion rotateQuate = Quaternion.AngleAxis(45, Vector3.forward);
+        List<BulletCharacter> bullets = new List<BulletCharacter>();
+        for (int i = 0; i < 8; i++) 
+        {
+            var tempBullet = CreatBullet(bulletdir, firPoint.transform.position);
+            bulletdir = rotateQuate * bulletdir;
+            bullets.Add(tempBullet);
+        }
+        yield return new WaitForSeconds(1.0f);
+        for (int i=0;i<bullets.Count;i++) 
+        {
+            bullets[i].speed = 0;
+            StartCoroutine(FirRound(6, bullets[i].transform.position));
         }
     }
 

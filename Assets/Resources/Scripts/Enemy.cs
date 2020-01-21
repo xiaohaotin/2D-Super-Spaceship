@@ -7,16 +7,16 @@ public class Enemy : MonoBehaviour
 {
     SpaceShip spaceship;
 
-    public GameObject shotposition;
-    public GameObject shotcenter;
+    //public GameObject shotposition;
+    //public GameObject shotcenter;
 
-    public float angle;
+    //public float angle;
 
-    public int count;
-    public float spawnDelay = 0.1f;
-    public float releaseDelay = 0.2f;
-    float waveDelay = 0f;
-    float tick;
+    //public int count;
+    //public float spawnDelay = 0.1f;
+    //public float releaseDelay = 0.2f;
+    //float waveDelay = 0f;
+    //float tick;
 
     // Start is called before the first frame update
     //IEnumerator Start()
@@ -50,10 +50,10 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
-        tick = 0;
+        //tick = 0;
         spaceship = GetComponent<SpaceShip>();
         //ローカル座標のY軸のマイナス方向に移動する
-        spaceship.Move(transform.up * -1);
+        spaceship.Move(transform.up * 1);
 
     }
 
@@ -80,36 +80,36 @@ public class Enemy : MonoBehaviour
 
 
 
-        tick += Time.deltaTime;
-        if (tick > waveDelay)
-        {
-            tick = 0;
-            StartCoroutine(startspawnbullet(count, true, spawnDelay, releaseDelay));
-            waveDelay = count * spawnDelay + releaseDelay + 1f;
+        //tick += Time.deltaTime;
+        //if (tick > waveDelay)
+        //{
+        //    tick = 0;
+        //    StartCoroutine(startspawnbullet(count, true, spawnDelay, releaseDelay));
+        //    waveDelay = count * spawnDelay + releaseDelay + 1f;
 
-        }
+        //}
 
 
     }
 
-    private void Spawn()
-    {
-        spaceship.Shot(shotposition.transform);
-    }
+    //private void Spawn()
+    //{
+    //    spaceship.Shot(shotposition.transform);
+    //}
 
-    public IEnumerator startspawnbullet(int count, bool clockwise, float shotDelay, float endDelay)
-    {
+    //public IEnumerator startspawnbullet(int count, bool clockwise, float shotDelay, float endDelay)
+    //{
 
-        for (int i = 0; i < count; i++)
-        {
-            shotcenter.transform.Rotate(Vector3.forward, 360 / count * (clockwise ? 1 : -1));
-            Spawn();
-            yield return new WaitForSeconds(shotDelay);
-        }
+    //    for (int i = 0; i < count; i++)
+    //    {
+    //        shotcenter.transform.Rotate(Vector3.forward, 360 / count * (clockwise ? 1 : -1));
+    //        Spawn();
+    //        yield return new WaitForSeconds(shotDelay);
+    //    }
 
-        yield return new WaitForSeconds(endDelay);
-        spaceship.ShotAll();
-    }
+    //    yield return new WaitForSeconds(endDelay);
+    //    spaceship.ShotAll();
+    //}
 
     void OnTriggerEnter2D(Collider2D collision)
     {

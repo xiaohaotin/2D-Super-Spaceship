@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour {
     public float speed = 5;
 
     [SerializeField] GameManager gameManager;
-    //public GameObject bullet;
+    public GameObject bullet;
     // Start is called before the first frame update
 
     SpaceShip spaceship;

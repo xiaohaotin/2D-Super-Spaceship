@@ -18,7 +18,8 @@ public class Bullet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
+        //ローカル座標のY軸方向に移動する
+        GetComponent<Rigidbody2D>().velocity = transform.up.normalized * speed;
     }
 
     public void SetMoveDirection(Vector2 dir) 
@@ -29,21 +30,22 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
-
-    public void release()
-    {
-        if (cantrackplayer == false)
-        {
-            //ローカル座標のY軸方向に移動する
-            GetComponent<Rigidbody2D>().velocity = transform.up.normalized * speed;
-        }
-        else
-        {
-
-        }
         //lifeTime秒後に削除
         Destroy(gameObject, lifeTime);
     }
+
+    //public void release()
+    //{
+    //    if (cantrackplayer == false)
+    //    {
+    //        //ローカル座標のY軸方向に移動する
+    //        GetComponent<Rigidbody2D>().velocity = transform.up.normalized * speed;
+    //    }
+    //    else
+    //    {
+
+    //    }
+    //    //lifeTime秒後に削除
+    //    Destroy(gameObject, lifeTime);
+    //}
 }

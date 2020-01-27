@@ -150,6 +150,7 @@ public class GameMode : MonoBehaviour
         }
     }
 
+
     /// <summary>
     /// 球体弾幕
     /// </summary>

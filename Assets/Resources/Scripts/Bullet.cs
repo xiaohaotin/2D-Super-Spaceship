@@ -9,7 +9,10 @@ public class Bullet : MonoBehaviour
     public float speed = 10;
 
     // Object生成から削除するまでの時間
-    public float lifeTime = 5;
+    public float lifeTime = 1;
+
+    //攻撃力
+    public float power = 1;
     
     //弾は追跡かどうか
     public bool cantrackplayer;
@@ -20,8 +23,9 @@ public class Bullet : MonoBehaviour
     {
         //ローカル座標のY軸方向に移動する
         GetComponent<Rigidbody2D>().velocity = transform.up.normalized * speed;
+        //lifeTime秒後に削除
+        Destroy(gameObject, lifeTime);
     }
-
     public void SetMoveDirection(Vector2 dir) 
     {
         moveDirection = dir;
@@ -30,8 +34,7 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //lifeTime秒後に削除
-        Destroy(gameObject, lifeTime);
+        
     }
 
     //public void release()

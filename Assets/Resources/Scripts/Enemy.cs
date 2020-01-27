@@ -6,7 +6,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     SpaceShip spaceship;
-
+    public int hp = 1;
     //public GameObject shotposition;
     //public GameObject shotcenter;
 
@@ -53,7 +53,7 @@ public class Enemy : MonoBehaviour
         //tick = 0;
         spaceship = GetComponent<SpaceShip>();
         //ローカル座標のY軸のマイナス方向に移動する
-        spaceship.Move(transform.up * 1);
+        spaceship.Move(transform.up * -1);
 
     }
 

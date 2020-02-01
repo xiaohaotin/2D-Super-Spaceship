@@ -10,6 +10,8 @@ public class SpaceShip : MonoBehaviour
 
     //移動スピード
     public float speed;
+    public GameObject Player;
+    public GameObject Enemy;
 
     //弾を撃つ間隔
     public float shotDelay;
@@ -42,7 +44,15 @@ public class SpaceShip : MonoBehaviour
     //機体の移動
     public void Move(Vector2 direction)
     {
-        GetComponent<Rigidbody2D>().velocity = direction * speed;
+        if (Player)
+        {
+            GetComponent<Rigidbody2D>().velocity = direction * speed;
+        }
+        if (Enemy)
+        {
+            GetComponent<Rigidbody2D>().velocity = direction * speed * -1;
+        }
+       
     }
 
 

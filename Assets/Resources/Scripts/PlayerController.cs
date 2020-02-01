@@ -5,7 +5,9 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
     //移動スピード
     public float speed = 5;
-
+    public float speed_1;
+    //爆発のprefab
+    public GameObject explosion;
     [SerializeField] GameManager gameManager;
     public GameObject bullet;
     // Start is called before the first frame update
@@ -68,6 +70,11 @@ public class PlayerController : MonoBehaviour {
         }
         
     }
+    //public void Move(Vector2 direction)
+    //{
+    //    GetComponent<Rigidbody2D>().velocity = direction * speed_1 * -1;
+    //}
 
-    
+
+
 }

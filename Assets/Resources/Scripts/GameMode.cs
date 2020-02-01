@@ -12,18 +12,19 @@ public class GameMode : MonoBehaviour
     public float cooldown = 0;
     public bool ShotGun;
     public bool FirRound_;
+    public bool FireTurbine_;
     // Start is called before the first frame update
     void Start()
     {
         tempBullets = new List<BulletCharacter>();
-        //time = 3;
+        time = 3;
       
     }
 
     // Update is called once per frame
     void Update()
     {
-        //cooldown += Time.deltaTime;
+       cooldown += Time.deltaTime;
 
 
     }
@@ -34,47 +35,60 @@ public class GameMode : MonoBehaviour
 
     public void Attack()
     {
-        time++;
-        if (time>=300)
+        
+        if (cooldown >= 3)
         {
-            time = 0;
+            if (time == 3)
+            {
+                ShotGun = true;
+                time = 6;
+
+                if (ShotGun)
+                {
+                    StopAllCoroutines();
+                    ClearBulletsList();
+                    StartCoroutine(FirShotgun());
+
+                    ShotGun = false;
+                }
+
+            }
         }
-        //if (cooldown>=3)
-        //{
+        if (cooldown >= 10)
+        {
 
+            if (time == 6)
+            {
+                FirRound_ = true;
+                time = 9;
+                if (FirRound_)
+                {
+                    StopAllCoroutines();
+                    ClearBulletsList();
+                    StartCoroutine(FirRound(5, firPoint.transform.position));
 
+                    FirRound_ = false;
+                }
+            }
+        }
+        if(cooldown >= 15)
+        {
+            if (time == 9)
+            {
+                FireTurbine_ = true;
+                time = 12;
+                if (FireTurbine_)
+                {
+                    StopAllCoroutines();
+                    ClearBulletsList();
+                    StartCoroutine(FireTurbine());
 
-        //    //if (time == 3)
-        //    //{
-        //    //    ShotGun = true;
-        //    //    time = 6;
-
-        //    //    if (ShotGun)
-        //    //    {
-        //    //        StopAllCoroutines();
-        //    //        ClearBulletsList();
-        //    //        StartCoroutine(FirShotgun());
-
-        //    //        ShotGun = false;
-        //    //    }
-
-        //    //}
-        //}
-        //if (cooldown>=15)
-        //{
-           
-        //    if (time == 6)
-        //    {
-        //        FirRound_ = true;
-        //        time = 9;
-        //        if (FirRound_)
-        //        {
-        //            StopAllCoroutines();
-        //            ClearBulletsList();
-        //            StartCoroutine(FirRound(5, firPoint.transform.position));
-        //        }
-        //    }
-        //}
+                    FireTurbine_ = false;
+                    cooldown = -1;
+                    time = 3;
+                }
+            }
+        }
         if (GUI.Button(new Rect(20,240,200,100),"多重円形弾幕")) 
         {
             StopAllCoroutines();
@@ -153,7 +167,7 @@ public class GameMode : MonoBehaviour
     /// 嵐弾幕
     /// </summary>
     /// <returns></returns>
-    IEnumerator FireTurbine()
+    public IEnumerator FireTurbine()
     {
         Vector3 bulletDir = firPoint.transform.up;      //发射方向
         Quaternion rotateQuate = Quaternion.AngleAxis(20, Vector3.forward);//使用四元数制造绕Z轴旋转20度的旋转

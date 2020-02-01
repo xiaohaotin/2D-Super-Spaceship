@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -236,6 +236,10 @@ MonoBehaviour:
   bulletTemplate: {fileID: 1287559886}
   firPoint: {fileID: 1994780317}
   tempBullets: []
+  time: 0
+  cooldown: 0
+  ShotGun: 0
+  FirRound_: 0
 --- !u!4 &193132133
 Transform:
   m_ObjectHideFlags: 0
@@ -680,7 +684,7 @@ PrefabInstance:
     - target: {fileID: 6967458674895510326, guid: ea74cc1da4ab2764ab1c37bf7fca3541,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.44
+      value: 2.6
       objectReference: {fileID: 0}
     - target: {fileID: 6967458674895510326, guid: ea74cc1da4ab2764ab1c37bf7fca3541,
         type: 3}
@@ -1047,7 +1051,7 @@ PrefabInstance:
     - target: {fileID: 6647914845999332711, guid: ae4306979f43c644a9289b32ced0615c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -3.62
       objectReference: {fileID: 0}
     - target: {fileID: 6647914845999332711, guid: ae4306979f43c644a9289b32ced0615c,
         type: 3}

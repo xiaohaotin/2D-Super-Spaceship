@@ -8,32 +8,73 @@ public class GameMode : MonoBehaviour
     public BulletCharacter bulletTemplate;
     public Transform firPoint;
     public List<BulletCharacter> tempBullets;
+    public float time = 0;
+    public float cooldown = 0;
+    public bool ShotGun;
+    public bool FirRound_;
     // Start is called before the first frame update
     void Start()
     {
         tempBullets = new List<BulletCharacter>();
+        //time = 3;
+      
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        //cooldown += Time.deltaTime;
+
+
+    }
+    private void FixedUpdate()
+    {
+        Attack();
     }
 
-    private void OnGUI()
+    public void Attack()
     {
-        if (GUI.Button(new Rect(20, 40, 200, 100), "ShotGun"))
+        time++;
+        if (time>=300)
         {
-            StopAllCoroutines();
-            ClearBulletsList();
-            StartCoroutine(FirShotgun());
+            time = 0;
         }
-        if (GUI.Button(new Rect(20, 140, 200, 100), "円形弾幕"))
-        {
-            StopAllCoroutines();
-            ClearBulletsList();
-            StartCoroutine(FirRound(5, firPoint.transform.position));
-        }
+        //if (cooldown>=3)
+        //{
+
+
+
+        //    //if (time == 3)
+        //    //{
+        //    //    ShotGun = true;
+        //    //    time = 6;
+
+        //    //    if (ShotGun)
+        //    //    {
+        //    //        StopAllCoroutines();
+        //    //        ClearBulletsList();
+        //    //        StartCoroutine(FirShotgun());
+
+        //    //        ShotGun = false;
+        //    //    }
+
+        //    //}
+        //}
+        //if (cooldown>=15)
+        //{
+           
+        //    if (time == 6)
+        //    {
+        //        FirRound_ = true;
+        //        time = 9;
+        //        if (FirRound_)
+        //        {
+        //            StopAllCoroutines();
+        //            ClearBulletsList();
+        //            StartCoroutine(FirRound(5, firPoint.transform.position));
+        //        }
+        //    }
+        //}
         if (GUI.Button(new Rect(20,240,200,100),"多重円形弾幕")) 
         {
             StopAllCoroutines();
@@ -136,11 +177,19 @@ public class GameMode : MonoBehaviour
         Vector3 bulletdir = this.transform.up;
         Quaternion rotateQuate = Quaternion.AngleAxis(45, Vector3.forward);
         List<BulletCharacter> bullets = new List<BulletCharacter>();
-        for (int i = 0; i < 8; i++) 
+        for (int i = 0; i < 8; i++)
         {
+           
             var tempBullet = CreatBullet(bulletdir, firPoint.transform.position);
             bulletdir = rotateQuate * bulletdir;
             bullets.Add(tempBullet);
+
+            var clones = GameObject.FindGameObjectsWithTag("bullet");
+            foreach (var clone in clones)
+            {
+                Destroy(clone,3f);
+
+            }
         }
         yield return new WaitForSeconds(1.0f);
         for (int i=0;i<bullets.Count;i++) 
@@ -169,6 +218,12 @@ public class GameMode : MonoBehaviour
                 tempBullet.isMove = false;
                 StartCoroutine(tempBullet.DirChangeMoveMode(10.0f, 0.4f, 15));
                 bulletDir = rotateQuate * bulletDir;
+                var clones = GameObject.FindGameObjectsWithTag("bullet");
+                foreach (var clone in clones)
+                {
+                    Destroy(clone, 5f);
+
+                }
             }
             yield return new WaitForSeconds(0.2f);
         }

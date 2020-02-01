@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7127821768532926895}
   m_Layer: 11
   m_Name: EnemyBallBullet
-  m_TagString: Untagged
+  m_TagString: bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -96,6 +96,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   lifeTime: 8
+  power: 1
   cantrackplayer: 0
 --- !u!50 &5237135545358198125
 Rigidbody2D:

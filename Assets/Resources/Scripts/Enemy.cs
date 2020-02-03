@@ -6,7 +6,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     SpaceShip spaceship;
-    public int hp = 1;
+    public GameObject Enemy1;
     //public GameObject shotposition;
     //public GameObject shotcenter;
 
@@ -113,25 +113,29 @@ public class Enemy : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        //layer名を取得
-        string layerName = LayerMask.LayerToName(collision.gameObject.layer);
-
-        //layer名がBullet(Player)以外の時は何も行わない
-        if (layerName != "Bullet(Player)")
+        if(Enemy1)
         {
-            return;
-        }
-        else
-        {
-            //弾を削除する
-            Destroy(collision.gameObject);
+            //layer名を取得
+            string layerName = LayerMask.LayerToName(collision.gameObject.layer);
 
-            //爆発する
-            spaceship.Explosion();
+            //layer名がBullet(Player)以外の時は何も行わない
+            if (layerName != "Bullet(Player)")
+            {
+                return;
+            }
+            else
+            {
+                //弾を削除する
+                Destroy(collision.gameObject);
 
-            //Enemyを削除する
-            Destroy(gameObject);
+                //爆発する
+                spaceship.Explosion();
+
+                //Enemyを削除する
+                Destroy(gameObject);
+            }
         }
+       
     }
 
  

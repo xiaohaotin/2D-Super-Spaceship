@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour {
     public float speed_1;
     //爆発のprefab
     public GameObject explosion;
-    [SerializeField] GameManager gameManager;
+    //[SerializeField] GameManager gameManager;
     public GameObject bullet;
     // Start is called before the first frame update
 
@@ -66,7 +66,7 @@ public class PlayerController : MonoBehaviour {
 
             //playerを削除する
             Destroy(gameObject);
-            gameManager.GameOver();
+            //gameManager.GameOver();
         }
         
     }

@@ -13,12 +13,12 @@ public class GameMode : MonoBehaviour
     public bool ShotGun;
     public bool FirRound_;
     public bool FireTurbine_;
+    public GameObject Boss;
     // Start is called before the first frame update
     void Start()
     {
         tempBullets = new List<BulletCharacter>();
         time = 3;
-      
     }
 
     // Update is called once per frame
@@ -35,7 +35,8 @@ public class GameMode : MonoBehaviour
 
     public void Attack()
     {
-        
+        if (Boss)
+        { 
         if (cooldown >= 3)
         {
             if (time == 3)
@@ -71,21 +72,22 @@ public class GameMode : MonoBehaviour
                 }
             }
         }
-        if(cooldown >= 15)
-        {
-            if (time == 9)
+            if (cooldown >= 15)
             {
-                FireTurbine_ = true;
-                time = 12;
-                if (FireTurbine_)
+                if (time == 9)
                 {
-                    StopAllCoroutines();
-                    ClearBulletsList();
-                    StartCoroutine(FireTurbine());
+                    FireTurbine_ = true;
+                    time = 12;
+                    if (FireTurbine_)
+                    {
+                        StopAllCoroutines();
+                        ClearBulletsList();
+                        StartCoroutine(FireTurbine());
 
-                    FireTurbine_ = false;
-                    cooldown = -1;
-                    time = 3;
+                        FireTurbine_ = false;
+                        cooldown = -1;
+                        time = 3;
+                    }
                 }
             }
         }

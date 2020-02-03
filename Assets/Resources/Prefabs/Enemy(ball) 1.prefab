@@ -71,11 +71,11 @@ GameObject:
   - component: {fileID: 6730546985048110522}
   - component: {fileID: 6730546985048110501}
   - component: {fileID: 6730546985048110500}
-  - component: {fileID: 827620335179418081}
   - component: {fileID: 5368353377902454521}
+  - component: {fileID: 827620335179418081}
   - component: {fileID: 1491164198450044942}
   - component: {fileID: 9187503629555995799}
-  - component: {fileID: 1613868003231424372}
+  - component: {fileID: 2354119013203923599}
   m_Layer: 9
   m_Name: Enemy(ball) 1
   m_TagString: Untagged
@@ -168,26 +168,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &827620335179418081
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6730546985048110503}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 110709da07d3ce94fa4ac1f3331c396d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 2
-  Player: {fileID: 0}
-  Enemy: {fileID: 6730546985048110503}
-  shotDelay: 3
-  bullet: {fileID: 214022176838010535, guid: 3715adb9fd0410c48b42f936a069f01b, type: 3}
-  canShot: 1
-  explosion: {fileID: 3198395291949188266, guid: 2fcd385ee89f75447bd2d6b7048095c4,
-    type: 3}
 --- !u!50 &5368353377902454521
 Rigidbody2D:
   serializedVersion: 4
@@ -209,6 +189,26 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &827620335179418081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6730546985048110503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 110709da07d3ce94fa4ac1f3331c396d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
+  Player: {fileID: 0}
+  Enemy: {fileID: 6730546985048110503}
+  shotDelay: 3
+  bullet: {fileID: 0}
+  canShot: 1
+  explosion: {fileID: 3198395291949188266, guid: 2fcd385ee89f75447bd2d6b7048095c4,
+    type: 3}
 --- !u!114 &1491164198450044942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,7 +221,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2186238a085d24fb7f5c9b468eaa3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 1
+  Enemy1: {fileID: 6730546985048110503}
 --- !u!58 &9187503629555995799
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -238,7 +238,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.4
---- !u!114 &1613868003231424372
+--- !u!114 &2354119013203923599
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -247,17 +247,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 6730546985048110503}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00504b4f4543199499c07eea94250702, type: 3}
+  m_Script: {fileID: 11500000, guid: 2bf1b28943b7a3f4fa09a7392c17cd28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletTemplate: {fileID: 0}
+  Zako: {fileID: 6730546985048110503}
+  bulletTemplate: {fileID: 8268951546993221692, guid: 61aef80411f4181478233b34c18ca0f9,
+    type: 3}
   firPoint: {fileID: 6730546985048110522}
   tempBullets: []
   time: 0
   cooldown: 0
   ShotGun: 0
-  FirRound_: 0
-  FireTurbine_: 0
 --- !u!1 &7189033145111255825
 GameObject:
   m_ObjectHideFlags: 0

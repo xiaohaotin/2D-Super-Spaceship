@@ -7,7 +7,7 @@ public class Emitter : MonoBehaviour
     //Waveプレハブを格納する
         public GameObject[] waves;
     [SerializeField] 
-    GameManager gameManager;
+    //GameManager gameManager;
 
     //現在のWave
     private int currentWave;

@@ -11,11 +11,15 @@ public class ZakoAttack : MonoBehaviour
     public float time = 0;
     public float cooldown = 0;
     public bool ShotGun;
+    Animator animator;
+    public AudioClip shootSE;
+    
     // Start is called before the first frame update
     void Start()
     {
         tempBullets = new List<BulletCharacter>();
         time = 3;
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -43,7 +47,7 @@ public class ZakoAttack : MonoBehaviour
                         StopAllCoroutines();
                         ClearBulletsList();
                         StartCoroutine(FirShotgun());
-
+                        AudioSource.PlayClipAtPoint(shootSE, Camera.main.transform.position);
                         ShotGun = false;
                     }
 

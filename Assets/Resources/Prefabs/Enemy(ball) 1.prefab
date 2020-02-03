@@ -204,6 +204,7 @@ MonoBehaviour:
   speed: 2
   Player: {fileID: 0}
   Enemy: {fileID: 6730546985048110503}
+  power: 1
   shotDelay: 3
   bullet: {fileID: 0}
   canShot: 1
@@ -222,6 +223,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemy1: {fileID: 6730546985048110503}
+  expolisionSE: {fileID: 8300000, guid: cc7da5800bd3b4cb4b196ef674bee2e5, type: 3}
+  hp: 1
+  point: 300
 --- !u!58 &9187503629555995799
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -258,6 +262,7 @@ MonoBehaviour:
   time: 0
   cooldown: 0
   ShotGun: 0
+  shootSE: {fileID: 8300000, guid: 1743f0d445b86480b8ecfdbc8c84a5f9, type: 3}
 --- !u!1 &7189033145111255825
 GameObject:
   m_ObjectHideFlags: 0

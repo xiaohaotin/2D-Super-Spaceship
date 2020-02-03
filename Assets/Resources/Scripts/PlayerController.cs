@@ -6,10 +6,15 @@ public class PlayerController : MonoBehaviour {
     //移動スピード
     public float speed = 5;
     public float speed_1;
+
+    Animator animator;
     //爆発のprefab
     public GameObject explosion;
     //[SerializeField] GameManager gameManager;
     public GameObject bullet;
+
+    public AudioClip shootSE;
+    public AudioClip exposionSE;
     // Start is called before the first frame update
 
     SpaceShip spaceship;
@@ -17,10 +22,11 @@ public class PlayerController : MonoBehaviour {
         while (true) {
             // Spaceshipコンポーネントを取得
             spaceship = GetComponent<SpaceShip>();
-
+            animator = GetComponent<Animator>();
             //弾はプレイヤーと同じ位置/角度で作成
             //Instantiate(bullet, transform.position, transform.rotation);
             spaceship.Shot(transform);
+            AudioSource.PlayClipAtPoint(shootSE, Camera.main.transform.position);
 
             //shotDelay秒待つ
             yield return new WaitForSeconds(spaceship.shotDelay);
@@ -63,7 +69,8 @@ public class PlayerController : MonoBehaviour {
         {
             //爆発する
             spaceship.Explosion();
-
+            AudioSource.PlayClipAtPoint(exposionSE, Camera.main.transform.position);
+            FindObjectOfType<Manager>().GameOver();
             //playerを削除する
             Destroy(gameObject);
             //gameManager.GameOver();

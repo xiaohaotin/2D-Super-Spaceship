@@ -6,8 +6,7 @@ public class Emitter : MonoBehaviour
 {
     //Waveプレハブを格納する
         public GameObject[] waves;
-    [SerializeField] 
-    //GameManager gameManager;
+    private Manager manager;
 
     //現在のWave
     private int currentWave;
@@ -23,9 +22,14 @@ public class Emitter : MonoBehaviour
         {
             yield break;
         }
-
+        // Managerコンポーネントをシーン内から探して取得する
+        manager = FindObjectOfType<Manager>();
         while (true)
         {
+            while (manager.IsPlaying() == false)
+            {
+                yield return new WaitForEndOfFrame();
+            }
             //waveを作成する
             GameObject wave = (GameObject)Instantiate(waves[currentWave], transform.position, Quaternion.identity);
 

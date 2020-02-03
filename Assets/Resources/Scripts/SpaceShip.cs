@@ -12,6 +12,8 @@ public class SpaceShip : MonoBehaviour
     public float speed;
     public GameObject Player;
     public GameObject Enemy;
+    // ヒットポイント
+    public int power = 1;
 
     //弾を撃つ間隔
     public float shotDelay;
@@ -37,8 +39,7 @@ public class SpaceShip : MonoBehaviour
     public void Shot(Transform origin)
     {
         GameObject bulletInst = Instantiate(bullet, origin.position, origin.rotation);
-        //bullets.Add(bulletInst);
-        //bulletInst.transform.SetParent(this.transform);
+        
     }
 
     //機体の移動
@@ -56,14 +57,5 @@ public class SpaceShip : MonoBehaviour
     }
 
 
-    //public void ShotAll()
-    //{
-    //    foreach (var b in bullets)
-    //    {
-    //        b.GetComponent<Bullet>().release();
-    //        b.transform.SetParent(null);
-    //    }
-
-    //    bullets.Clear();
-    //}
+   
 }

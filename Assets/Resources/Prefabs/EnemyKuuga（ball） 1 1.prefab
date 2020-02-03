@@ -139,6 +139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemy1: {fileID: 5855722330437105811}
+  expolisionSE: {fileID: 8300000, guid: cc7da5800bd3b4cb4b196ef674bee2e5, type: 3}
 --- !u!58 &3205855924260077843
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -195,6 +196,7 @@ MonoBehaviour:
   time: 0
   cooldown: 0
   ShotGun: 0
+  shootSE: {fileID: 8300000, guid: 1743f0d445b86480b8ecfdbc8c84a5f9, type: 3}
 --- !u!1 &8528413413333773579
 GameObject:
   m_ObjectHideFlags: 0

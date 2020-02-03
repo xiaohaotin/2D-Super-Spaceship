@@ -1,20 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &930061497008277623
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3223411994224573495}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3d8873061344744bb07b728df4cf66e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Hp: 1000
-  Nowhp: 1000
-  healthSlider: {fileID: 0}
 --- !u!114 &7881700324963457338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36,6 +21,8 @@ MonoBehaviour:
   ShotGun: 0
   FirRound_: 0
   FireTurbine_: 0
+  FlowerFireBall_: 0
+  FireBallBulle_: 0
   Boss: {fileID: 3223411994224573495}
 --- !u!1 &7011781863335167341
 GameObject:
@@ -75,11 +62,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6100745121981398886}
     m_Modifications:
-    - target: {fileID: 5855722330437105811, guid: 19bc93f78d6b62c4294e569d9e3db0b9,
-        type: 3}
-      propertyPath: m_Name
-      value: "EnemyKuuga\uFF08ball\uFF09 1 1"
-      objectReference: {fileID: 0}
     - target: {fileID: 5855722330437105806, guid: 19bc93f78d6b62c4294e569d9e3db0b9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -150,10 +132,30 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 11.188
       objectReference: {fileID: 0}
+    - target: {fileID: 5855722330437105811, guid: 19bc93f78d6b62c4294e569d9e3db0b9,
+        type: 3}
+      propertyPath: m_Name
+      value: "EnemyKuuga\uFF08ball\uFF09 1 1"
+      objectReference: {fileID: 0}
     - target: {fileID: 1771512578770332986, guid: 19bc93f78d6b62c4294e569d9e3db0b9,
         type: 3}
       propertyPath: Enemy1
       value: 
+      objectReference: {fileID: 3223411994224573495}
+    - target: {fileID: 1771512578770332986, guid: 19bc93f78d6b62c4294e569d9e3db0b9,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1771512578770332986, guid: 19bc93f78d6b62c4294e569d9e3db0b9,
+        type: 3}
+      propertyPath: hp
+      value: 1800
+      objectReference: {fileID: 0}
+    - target: {fileID: 1771512578770332986, guid: 19bc93f78d6b62c4294e569d9e3db0b9,
+        type: 3}
+      propertyPath: point
+      value: 5000
       objectReference: {fileID: 0}
     - target: {fileID: 3599175243436520429, guid: 19bc93f78d6b62c4294e569d9e3db0b9,
         type: 3}

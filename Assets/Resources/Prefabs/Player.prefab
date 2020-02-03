@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7256904869793223915}
   - component: {fileID: 3804298762866579289}
   - component: {fileID: 6294074197822746795}
+  - component: {fileID: 2082717262773899327}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -138,8 +139,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  gameManager: {fileID: 0}
-  bullet: {fileID: 0}
+  speed_1: 0
+  explosion: {fileID: 3198395291949188266, guid: 2fcd385ee89f75447bd2d6b7048095c4,
+    type: 3}
+  bullet: {fileID: 3040278315383502928, guid: eca202a3df5785b40af245485fd585aa, type: 3}
+  shootSE: {fileID: 8300000, guid: 1743f0d445b86480b8ecfdbc8c84a5f9, type: 3}
+  exposionSE: {fileID: 8300000, guid: cc7da5800bd3b4cb4b196ef674bee2e5, type: 3}
 --- !u!58 &6294074197822746795
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -156,6 +161,26 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.15}
   serializedVersion: 2
   m_Radius: 0.1
+--- !u!114 &2082717262773899327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6647914845999332714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 110709da07d3ce94fa4ac1f3331c396d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  Player: {fileID: 6647914845999332714}
+  Enemy: {fileID: 0}
+  shotDelay: 0.1
+  bullet: {fileID: 3040278315383502928, guid: eca202a3df5785b40af245485fd585aa, type: 3}
+  canShot: 0
+  explosion: {fileID: 3198395291949188266, guid: 2fcd385ee89f75447bd2d6b7048095c4,
+    type: 3}
 --- !u!1 &6909196263897770542
 GameObject:
   m_ObjectHideFlags: 0
